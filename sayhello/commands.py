@@ -7,6 +7,9 @@
 
 import  click
 
+from sayhello import app, db
+from sayhello.models import Message
+
 @click.option('--drop', is_flag=True, help='Create after drop.')
 def initdb(drop):
     """Initialize the database."""

@@ -15,9 +15,9 @@ def index():
     messages = Message.query.order_by(Message.timestamp.desc()).all()
     form = HelloForm()
     if form.validate_on_submit():
-        name = form.name
-        body = form.body
-        message = Message(name=name, body=body)
+        name = form.name.data
+        body = form.body.data
+        message = Message(body=body, name=name)
         db.session.add(message)
         db.session.commit()
         flash('Your message have been sent to you world!')
